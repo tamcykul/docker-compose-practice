@@ -8,3 +8,9 @@ services:
 
   redis:
     image: redis:alpine
+    volumes:
+      - redis-data:/data
+    command: redis-server --save 60 1
+
+volumes:
+  redis-data:
