@@ -22,7 +22,7 @@ jobs:
 
       - name: Test the endpoint
         run: |
-          curl -f http://localhost:5001 || exit 1
+          curl -f http://localhost:5000 || exit 1
 
       - name: Show logs if failed
         if: failure()
