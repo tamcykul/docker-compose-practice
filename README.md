@@ -24,3 +24,13 @@ Redis data is stored in a named Docker volume (`redis-data`), so the visit count
 - Service-to-service networking by name (Flask connects to Redis using `host='redis'`, no manual IP config)
 - Docker named volumes for persistent storage
 - Difference between a container's disposable filesystem and a volume's persistent storage
+
+## CI/CD
+
+This project uses GitHub Actions to automatically build and test the app on every push to `main`. The workflow:
+- Builds the Docker images from scratch
+- Starts the full Flask + Redis stack
+- Sends a real HTTP request to verify the app responds correctly
+- Tears everything down afterward
+
+See `.github/workflows/docker-build.yml` for the full pipeline.
